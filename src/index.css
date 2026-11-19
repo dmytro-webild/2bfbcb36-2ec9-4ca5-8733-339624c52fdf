@@ -9,16 +9,16 @@
 
 /* webild:theme-ai */
 :root {
-  --btn-hover: #f6eeee;
-  --primary-cta: #1c1214;
-  --primary-cta-text: #f6eeee;
-  --secondary-cta: #ecdfe0;
-  --secondary-cta-text: #1c1214;
-  --background-accent: #8c1d3c;
+  --btn-hover: #f3efe8;
+  --primary-cta: #151210;
+  --primary-cta-text: #f3efe8;
+  --secondary-cta: #e8e2d8;
+  --secondary-cta-text: #151210;
+  --background-accent: #c8161d;
 
-  --background: #f6eeee;
-  --foreground: #1c1214;
-  --card: #ecdfe0;
+  --background: #f3efe8;
+  --foreground: #151210;
+  --card: #e8e2d8;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
@@ -26,23 +26,23 @@
   --primary-foreground: var(--primary-cta-text);
   --secondary: var(--secondary-cta);
   --secondary-foreground: var(--secondary-cta-text);
-  --muted: #ecdfe0;
-  --muted-foreground: #66565a;
+  --muted: #e8e2d8;
+  --muted-foreground: #5e5750;
   --accent: var(--background-accent);
   --accent-foreground: #ffffff;
-  --deep: #f0e6e7;
-  --deep-foreground: #1c1214;
+  --deep: #ece6dd;
+  --deep-foreground: #151210;
   --destructive: #e5484d;
   --destructive-foreground: #161616;
-  --border: #dfcfd1;
+  --border: #d6cec2;
   --input: #333333;
   --ring: var(--primary-cta);
-  --tint-1: #d6a3b0;
-  --tint-2: #e6c4cc;
-  --tint-3: #eed7dc;
+  --tint-1: #e9a29f;
+  --tint-2: #f0c6c0;
+  --tint-3: #f3d9d2;
   --glow: var(--accent);
   --glass: var(--background);
-  --accent-glass: #8c1d3ce8;
+  --accent-glass: #c8161de8;
   --model-tone: light;
 
   --font-heading: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -395,15 +395,15 @@
 [data-tone="deep"] {
   --background: var(--deep);
   --foreground: var(--deep-foreground);
-  --card: #ecdfe0;
+  --card: #e8e2d8;
   --card-foreground: var(--deep-foreground);
   --primary: var(--deep-foreground);
   --primary-foreground: var(--deep);
   --secondary: #1c1914;
   --secondary-foreground: var(--deep-foreground);
-  --muted: #ecdfe0;
-  --muted-foreground: #66565a;
-  --border: #dfcfd1;
+  --muted: #e8e2d8;
+  --muted-foreground: #5e5750;
+  --border: #d6cec2;
   --input: #4c4a47;
   --ring: var(--deep-foreground);
   background-color: var(--background);
