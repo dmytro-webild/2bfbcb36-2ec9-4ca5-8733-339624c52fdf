@@ -15,6 +15,9 @@ type HeroShapeSplitProps = {
   description?: string;
   primaryButton?: Button;
   secondaryButton?: Button;
+  instagramButton?: Button;
+  directionsButton?: Button;
+  extraButtons?: Button[];
   scrollLabel?: string;
   imageSrc?: string;
   imageAlt?: string;
@@ -28,9 +31,12 @@ const RollLink = ({ text, href, show, delay }: Button & { show: boolean; delay: 
   const reduce = useReducedMotion();
   const { ease, slow } = useKitMotion();
   const letters = Array.from(text);
+  const isExternal = href.startsWith("http://") || href.startsWith("https://");
   return (
     <motion.a
       href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       initial={reduce ? false : { opacity: 0, y: 16 }}
       animate={show ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: slow, ease, delay }}
@@ -64,6 +70,9 @@ const HeroShapeSplit = ({
   description = "Identity, websites and digital products for founders with something to say.",
   primaryButton = { text: "Start a project", href: "#contact" },
   secondaryButton = { text: "See our work", href: "#gallery" },
+  instagramButton,
+  directionsButton,
+  extraButtons,
   scrollLabel = "Scroll to discover",
   imageSrc,
   imageAlt,
@@ -77,6 +86,14 @@ const HeroShapeSplit = ({
   const [go, setGo] = useState(introDelay <= 0);
   const tagChars = Array.from(tag);
   const words = title.trim().split(/\s+/).filter(Boolean);
+
+  const buttonsList = [
+    primaryButton,
+    secondaryButton,
+    instagramButton,
+    directionsButton,
+    ...(extraButtons ?? [])
+  ].filter((btn): btn is Button => Boolean(btn));
 
   useEffect(() => {
     if (go) return;
@@ -142,10 +159,11 @@ const HeroShapeSplit = ({
               </motion.p>
             )}
 
-            {(primaryButton || secondaryButton) && (
+            {buttonsList.length > 0 && (
               <div className="mt-[1.5rem] flex w-full flex-col lg:mt-[2.25rem] lg:flex-row lg:flex-wrap lg:gap-x-[1.5rem] lg:gap-y-[1rem]">
-                {primaryButton && <RollLink {...primaryButton} show={go} delay={0.2} />}
-                {secondaryButton && <RollLink {...secondaryButton} show={go} delay={0.26} />}
+                {buttonsList.map((btn, idx) => (
+                  <RollLink key={`${btn.text}-${idx}`} {...btn} show={go} delay={0.2 + idx * 0.06} />
+                ))}
               </div>
             )}
           </div>

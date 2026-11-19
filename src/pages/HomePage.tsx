@@ -50,6 +50,14 @@ export default function HomePage() {
             text: "Call atelier",
             href: "tel:+12676806578"
           }}
+          instagramButton={{
+            text: "Instagram",
+            href: "https://www.instagram.com/anaoliveiradressmaker?igsh=MWNrbDJqdTRhbGV3&utm_source=qr"
+          }}
+          directionsButton={{
+            text: "Get directions",
+            href: "https://maps.app.goo.gl/PxvQpRNMn8MFBL8s9?g_st=ic"
+          }}
           scrollLabel="Scroll to explore"
           introDelay={1.7}
         />
