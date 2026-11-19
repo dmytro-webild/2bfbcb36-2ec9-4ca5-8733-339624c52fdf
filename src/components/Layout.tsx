@@ -32,7 +32,7 @@ export default function Layout() {
           ]}
           contact={{
             text: "(267) 680-6578",
-            href: "tel:267) 680-6578"
+            href: "tel:+12676806578"
           }}
         />
       </header>
@@ -44,12 +44,20 @@ export default function Layout() {
           brand="Ana Oliveira Dressmaker"
           links={[
             {
-              text: "Privacy Policy",
-              href: "#"
+              text: "Instagram",
+              href: "https://www.instagram.com/anaoliveiradressmaker?igsh=MWNrbDJqdTRhbGV3&utm_source=qr"
             },
             {
-              text: "Terms of Service",
-              href: "#"
+              text: "Get Directions",
+              href: "https://maps.app.goo.gl/PxvQpRNMn8MFBL8s9?g_st=ic"
+            },
+            {
+              text: "WhatsApp",
+              href: "https://wa.me/12676806578"
+            },
+            {
+              text: "Call (267) 680-6578",
+              href: "tel:+12676806578"
             }
           ]}
           tagline="Expert tailoring and bespoke dressmaking in Philadelphia."

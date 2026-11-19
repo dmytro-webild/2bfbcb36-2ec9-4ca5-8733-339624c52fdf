@@ -14,6 +14,11 @@ type ContactUnderlineFormProps = {
   servicesLabel?: string;
   services?: string[];
   button?: { text: string };
+  address?: string;
+  phone?: string;
+  instagramUrl?: string;
+  directionsUrl?: string;
+  hours?: Array<{ days: string; time: string }>;
   ariaLabel?: string;
   className?: string;
 };
@@ -29,6 +34,15 @@ const ContactUnderlineForm = ({
   servicesLabel = "Service",
   services = ["Brand identity", "Website", "Product design", "Motion", "Other"],
   button = { text: "Send message" },
+  address = "8025 Castor Ave, Philadelphia, PA 19152",
+  phone = "(267) 680-6578",
+  instagramUrl = "https://www.instagram.com/anaoliveiradressmaker?igsh=MWNrbDJqdTRhbGV3&utm_source=qr",
+  directionsUrl = "https://maps.app.goo.gl/PxvQpRNMn8MFBL8s9?g_st=ic",
+  hours = [
+    { days: "Wednesday–Friday", time: "9 AM–6 PM" },
+    { days: "Saturday", time: "9:30 AM–4 PM" },
+    { days: "Sunday–Tuesday", time: "Closed" },
+  ],
   ariaLabel,
   className,
 }: ContactUnderlineFormProps) => {
@@ -66,7 +80,7 @@ const ContactUnderlineForm = ({
             initial={live ? "hidden" : false}
             whileInView="shown"
             viewport={{ once: true }}
-            className="flex flex-col gap-[clamp(1.5rem,2.4vw,2rem)] lg:col-span-8"
+            className="flex flex-col gap-[clamp(1.5rem,2.4vw,2rem)] lg:col-span-7"
           >
             {fields.map((field, i) => (
               <motion.label key={field.name} variants={rise(i)} className="group flex flex-col gap-[0.75rem]">
@@ -137,6 +151,84 @@ const ContactUnderlineForm = ({
               </motion.div>
             )}
           </motion.form>
+
+          <motion.div
+            initial={live ? { opacity: 0, y: 24 } : false}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: slow * 0.7, ease, delay: 0.2 }}
+            className="flex flex-col gap-8 border-t border-foreground/15 pt-8 lg:col-span-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0"
+          >
+            <div>
+              <p className="font-mono text-[length:var(--text-label)] uppercase tracking-[var(--label-tracking)] text-muted-foreground">
+                Atelier Location
+              </p>
+              <p className="mt-2 text-[length:var(--text-body-lg)] font-medium leading-snug">
+                {address}
+              </p>
+              {directionsUrl && (
+                <a
+                  href={directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-link mt-4 inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-sm font-medium transition-colors hover:text-accent"
+                >
+                  <span>Get directions on Google Maps</span>
+                  <svg aria-hidden="true" viewBox="0 0 12 12" className="size-3 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.2">
+                    <path d="M3 9l6-6M4 3h5v5" />
+                  </svg>
+                </a>
+              )}
+            </div>
+
+            <div>
+              <p className="font-mono text-[length:var(--text-label)] uppercase tracking-[var(--label-tracking)] text-muted-foreground">
+                Social & Direct
+              </p>
+              <div className="mt-3 flex flex-col gap-3">
+                {instagramUrl && (
+                  <a
+                    href={instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-link inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-sm font-medium transition-colors hover:text-accent"
+                  >
+                    <span>Follow on Instagram</span>
+                    <svg aria-hidden="true" viewBox="0 0 12 12" className="size-3 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.2">
+                      <path d="M3 9l6-6M4 3h5v5" />
+                    </svg>
+                  </a>
+                )}
+                {phone && (
+                  <a
+                    href={`tel:+1${phone.replace(/\D/g, "")}`}
+                    className="btn-link inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-sm font-medium transition-colors hover:text-accent"
+                  >
+                    <span>Call atelier: {phone}</span>
+                    <svg aria-hidden="true" viewBox="0 0 12 12" className="size-3 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.2">
+                      <path d="M3 9l6-6M4 3h5v5" />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {hours && hours.length > 0 && (
+              <div>
+                <p className="font-mono text-[length:var(--text-label)] uppercase tracking-[var(--label-tracking)] text-muted-foreground">
+                  Atelier Hours
+                </p>
+                <div className="mt-3 flex flex-col gap-2 font-mono text-sm">
+                  {hours.map((h, i) => (
+                    <div key={i} className="flex justify-between border-b border-foreground/10 pb-1">
+                      <span className="text-muted-foreground">{h.days}</span>
+                      <span className="font-medium">{h.time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </motion.div>
         </div>
       </div>
     </section>
