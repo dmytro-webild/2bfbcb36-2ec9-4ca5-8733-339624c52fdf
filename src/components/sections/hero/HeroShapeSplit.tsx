@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { useKitMotion } from "@/components/kit/kitMotion";
+import Media from "@/components/kit/Media";
 
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
@@ -15,6 +16,9 @@ type HeroShapeSplitProps = {
   primaryButton?: Button;
   secondaryButton?: Button;
   scrollLabel?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  portraitBadge?: string;
   introDelay?: number;
   ariaLabel?: string;
   className?: string;
@@ -61,6 +65,9 @@ const HeroShapeSplit = ({
   primaryButton = { text: "Start a project", href: "#contact" },
   secondaryButton = { text: "See our work", href: "#gallery" },
   scrollLabel = "Scroll to discover",
+  imageSrc,
+  imageAlt,
+  portraitBadge = "Ana Oliveira",
   introDelay = 0,
   ariaLabel,
   className,
@@ -88,7 +95,7 @@ const HeroShapeSplit = ({
       className={cn("relative overflow-x-clip text-foreground", className)}
     >
       <div className="relative min-h-svh overflow-hidden">
-        <div className="relative mx-auto flex min-h-svh w-[var(--container)] flex-col pb-[clamp(4rem,12svh,7rem)] pt-[clamp(6.5rem,15svh,10rem)] lg:pt-[clamp(7rem,17svh,10rem)]">
+        <div className="relative mx-auto flex min-h-svh w-[var(--container)] flex-col justify-center pb-[clamp(4rem,12svh,7rem)] pt-[clamp(6.5rem,15svh,10rem)] lg:flex-row lg:items-center lg:justify-between lg:pt-[clamp(7rem,17svh,10rem)]">
           <div className="relative z-10 flex flex-col items-start lg:w-1/2 lg:pr-[var(--gap)]">
             <div className="flex items-center gap-[0.875rem] font-mono text-[length:var(--text-label)] uppercase leading-[1.5]">
               <p className="sr-only">{tag}</p>
@@ -142,6 +149,35 @@ const HeroShapeSplit = ({
               </div>
             )}
           </div>
+
+          {imageSrc && (
+            <motion.div
+              initial={reduce ? false : { opacity: 0, scale: 0.94, y: 20 }}
+              animate={go ? { opacity: 1, scale: 1, y: 0 } : undefined}
+              transition={{ duration: slow * 1.2, ease, delay: 0.35 }}
+              className="relative z-10 mt-[2.5rem] w-full max-w-[28rem] self-center lg:mt-0 lg:w-[46%] lg:max-w-none lg:self-auto"
+            >
+              <div className="relative overflow-hidden rounded-2xl border border-[var(--primary-cta)]/30 kit-glass p-2.5 sm:p-3 shadow-2xl backdrop-blur-md">
+                <div className="relative aspect-[4/4.5] w-full overflow-hidden rounded-xl">
+                  <Media
+                    src={imageSrc}
+                    alt={imageAlt ?? "Ana Oliveira in her Philadelphia atelier"}
+                    className="size-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-black/60 backdrop-blur-md p-3 text-white">
+                    <div className="min-w-0">
+                      <p className="font-semibold text-sm tracking-wide truncate">{portraitBadge}</p>
+                      <p className="font-mono text-xs text-white/70 truncate">Master Dressmaker • Philadelphia, PA</p>
+                    </div>
+                    <span className="shrink-0 flex items-center gap-1 rounded-full bg-[var(--primary-cta)]/20 px-2.5 py-1 font-mono text-[10px] text-[var(--primary-cta)] border border-[var(--primary-cta)]/40">
+                      ★ 5.0 Rated
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
 
           {scrollLabel && (
             <motion.div
