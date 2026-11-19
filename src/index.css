@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Archivo:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "./styles/animations.css";
 @import "./styles/masks.css";
@@ -10,15 +9,15 @@
 
 /* webild:theme-ai */
 :root {
-  --primary-cta: #e0c078;
-  --primary-cta-text: #0b0a08;
-  --secondary-cta: #1c1914;
-  --secondary-cta-text: #f7f4ee;
-  --background-accent: #e0c078;
+  --primary-cta: #fefefe;
+  --primary-cta-text: #000000;
+  --secondary-cta: #141414;
+  --secondary-cta-text: #fefefe;
+  --background-accent: #ff6b5a;
 
-  --background: #0b0a08;
-  --foreground: #f7f4ee;
-  --card: #1c1914;
+  --background: #000000;
+  --foreground: #fefefe;
+  --card: #141414;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
@@ -26,27 +25,27 @@
   --primary-foreground: var(--primary-cta-text);
   --secondary: var(--secondary-cta);
   --secondary-foreground: var(--secondary-cta-text);
-  --muted: #1c1914;
-  --muted-foreground: #a4a29d;
+  --muted: #141414;
+  --muted-foreground: #9a9a9a;
   --accent: var(--background-accent);
-  --accent-foreground: #514f4a;
-  --deep: #14120e;
-  --deep-foreground: #f7f4ee;
+  --accent-foreground: #000000;
+  --deep: #000000;
+  --deep-foreground: #fefefe;
   --destructive: #e5484d;
   --destructive-foreground: #161616;
-  --border: #393734;
-  --input: #4c4a47;
+  --border: #1e1e1e;
+  --input: #333333;
   --ring: var(--primary-cta);
-  --tint-1: #7b4f00;
-  --tint-2: #5f3f00;
-  --tint-3: #422f00;
+  --tint-1: #80362d;
+  --tint-2: #59251f;
+  --tint-3: #331512;
   --glow: var(--accent);
   --glass: var(--background);
   --accent-glass: color-mix(in srgb, var(--accent) 70%, transparent);
   --model-tone: dark;
 
-  --font-heading: "Cormorant Garamond", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-body: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-label: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   --heading-weight: 400;
   --heading-tracking: -0.045em;
@@ -130,14 +129,14 @@
     margin: 0;
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     letter-spacing: -0.01em;
     min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Cormorant Garamond", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: var(--heading-weight);
     letter-spacing: var(--heading-tracking);
     line-height: var(--heading-leading);
@@ -395,15 +394,15 @@
 [data-tone="deep"] {
   --background: var(--deep);
   --foreground: var(--deep-foreground);
-  --card: #1c1914;
+  --card: #141414;
   --card-foreground: var(--deep-foreground);
   --primary: var(--deep-foreground);
   --primary-foreground: var(--deep);
   --secondary: #1c1914;
   --secondary-foreground: var(--deep-foreground);
-  --muted: #1c1914;
-  --muted-foreground: #a4a29d;
-  --border: #393734;
+  --muted: #141414;
+  --muted-foreground: #9a9a9a;
+  --border: #1e1e1e;
   --input: #4c4a47;
   --ring: var(--deep-foreground);
   background-color: var(--background);
